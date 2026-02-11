@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión del Diseño de Emprendimientos</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    line-height: 1.6;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    background: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #219150;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Gestión del Diseño de Emprendimientos</h1>
+<h2>Administración del Planeamiento Económico</h2>
+<button onclick="leerTexto()">🔊 Escuchar contenido</button>
+</header>
+
+<section id="contenido">
+<p><strong>1. ¿Qué es el planeamiento económico?</strong><br>
+Es el proceso mediante el cual se organizan y proyectan los aspectos económicos de un emprendimiento antes de iniciarlo.
+Sirve para reducir riesgos, tomar decisiones informadas y asegurar la sostenibilidad.</p>
+
+<p><strong>2. Diagnóstico económico inicial</strong><br>
+Permite conocer qué se produce en el territorio, qué falta producir, necesidades de la comunidad y recursos disponibles.</p>
+
+<p><strong>3. Definición de objetivos económicos</strong><br>
+Deben ser claros, realistas y medibles.</p>
+
+<p><strong>4. Identificación y cálculo de costos</strong><br>
+Costos fijos, variables y mixtos permiten definir el precio de venta.</p>
+
+<p><strong>5. Inversión inicial</strong><br>
+Incluye herramientas, insumos, equipamiento y trámites necesarios.</p>
+
+<p><strong>6. Fuentes de financiamiento</strong><br>
+Fondos comunitarios, cooperativas, microcréditos y aportes propios.</p>
+
+<p><strong>7. Proyección de ingresos</strong><br>
+Se estima cantidad de ventas, ingresos y punto de equilibrio.</p>
+
+<p><strong>8. Evaluación de riesgos</strong><br>
+Se analizan posibles dificultades y estrategias para sostener el emprendimiento.</p>
+</section>
+
+<script>
+function leerTexto() {
+    const texto = document.getElementById("contenido").innerText;
+    const mensaje = new SpeechSynthesisUtterance(texto);
+    mensaje.lang = "es-ES";
+    mensaje.rate = 1;
+    mensaje.pitch = 1;
+
+    const voces = speechSynthesis.getVoices();
+    const vozEspanol = voces.find(voz => voz.lang.includes("es"));
+
+    if (vozEspanol) {
+        mensaje.voice = vozEspanol;
+    }
+
+    speechSynthesis.speak(mensaje);
+}
+</script>
+
+</body>
+</html>
+
